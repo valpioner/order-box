@@ -33,7 +33,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Bode Parser Middleware
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // Passport Middleware
 app.use(passport.initialize());
@@ -41,14 +41,18 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
-app.use('/users', users)
+app.use('/users', users);
 
 // Index Route
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
-})
+});
+
+app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname, 'public/index.html'));
+});
 
 // Start Server
 app.listen(port, () => {
     console.log('Server started on port ' + port);
-})
+});
