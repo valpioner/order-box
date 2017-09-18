@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database')
 
 // Connnect To Database
-mongoose.connect(config.database);
+mongoose.connect(config.database, { useMongoClient: true });
 
 // On Connection
 mongoose.connection.on('connected', () => {
@@ -24,7 +24,7 @@ const app = express();
 const users = require('./routes/users');
 
 // Port number
-const port = 3000;
+const port = 3001;
 
 // CORS Middleware
 app.use(cors());
