@@ -1,4 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 body { 
     padding-top: 65px; 
+    color: #393d40;
+    margin-bottom: 20em;
+
+    font-family: 
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Oxygen",
+        "Ubuntu",
+        "CantareSans",
+        "DroidSans",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+}
+
+::selection {
+    background: #c0ecf4;
+    color: #FFF;
+}
+
+.bg-easy-gray{
+    background: #f6f8f8;
+}
+
+.btn{
+    border-radius: 100px;
+}
+
+.btn-yellow{
+    background: #FFC107;
+}
+
+.btn-grey{
+    background-color: #575a5b;
+    border: 1px solid #575a5b;
+    color: #fff;
+}
+
+.btn-grey:hover, .btn-grey:focus .btn-grey:active{
+    background-color: #3e4041;
+    border: 1px solid #3e4041;
+    color: #fff;
+}
+
+.btn--l{
+    font-size: 130%;
+    padding: 0 2.5em;
+    line-height: 2.7;
+    /* color:darkslategrey; */
+    
 }
