@@ -1,12 +1,14 @@
-<h2 class="page-header">Login</h2>
-<form (submit)="onLoginSubmit()">
-  <div class="form-group">
-    <label for="">Username</label>
-    <input type="text" class="form-control" [(ngModel)]="username" name="username">
+<div class="login text-center">
+  <h1>Login</h1>
+  <br>
+  <form (submit)="onLoginSubmit()">
+    <input type="text" class="form-control login-input" placeholder="Username" [(ngModel)]="username" name="username" required="required">
+    <input type="password" class="form-control login-input" placeholder="Password" [(ngModel)]="password" name="password" required="required">
+    <button type="submit" class="btn btn-block" value="Login">Login</button>
+  </form>
+  <br>
+  <div class="links text-left">
+    Not registered? <a [routerLink]="['/register']">Create an account</a>
+    <p>Forgot password? <a [routerLink]="['/forgotPassword']">Click here</a></p>
   </div>
-  <div class="form-group">
-    <label for="">Password</label>
-    <input type="password" class="form-control" [(ngModel)]="password" name="password">
-  </div>
-  <input type="submit" class="btn btn-primary" value="Login">
-</form>
+</div>
