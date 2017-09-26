@@ -1,0 +1,40 @@
+.profile{
+    cursor: pointer;
+    margin-left: .5em;
+}
+
+.fa-user, .fa-comment{
+    font-size: 150%;
+}
+
+.profile-dropdown{
+    left: -3em;
+}
+
+.dropdown-menu-right{
+    left: auto !important;
+    right: -1em !important;
+}
+
+.dropdown-menu{
+    right: -1.25em;
+}
+
+.dropdown-menu::after {
+    border: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    border-top: 0;
+    bottom: auto;
+    content: '';
+    display: block;
+    height: 0;
+    left: auto;
+    margin: -8px 0 0 -8px;
+    margin-top: 0;
+    position: absolute;
+    right: 1.25em;
+    top: 50%;
+    width: 0;
+    top: -8px;
+    bottom: auto;
+}
