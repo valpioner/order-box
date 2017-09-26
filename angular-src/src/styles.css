@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    position: relative;
+    height: 100%;
+}
+
 body { 
     padding-top: 65px; 
     background: #f6f8f8;
     color: #393d40;
+    height: 100%;
 
     font-family: 
         -apple-system,
@@ -16,6 +22,11 @@ body {
         "Helvetica Neue",
         Arial,
         sans-serif;
+}
+
+main{
+    padding-bottom:20em;
+    min-height: 100%;
 }
 
 ::selection {
