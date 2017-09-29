@@ -1,0 +1,85 @@
+<div class="container h-100">
+  <div class="row course h-100">
+    <div class="col-md-3 course-menu">
+
+      <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="w-100">
+
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <header class="row menu-module-header">
+              <div class="text-center header-number">
+                <div class="circle">
+                  <span>1</span>
+
+                </div>
+              </div>
+              <div class="header-text">Header name</div>
+              <div class="header-icon">3</div>
+            </header>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="row m-0">
+              <div class="col menu-module-content">
+                <div class="menu-module-item">
+                  sdgfdsgf
+                </div>
+                <div class="menu-module-item">
+                  sdgfdsgf
+                </div>
+                <div class="menu-module-item">
+                  sdgfdsgf
+                </div>
+              </div>
+
+            </div>
+          </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <header class="row menu-module-header">
+              <div class="text-center header-number">
+                <div class="circle">
+                  <span>2</span>
+
+                </div>
+              </div>
+              <div class="header-text">Header name</div>
+              <div class="header-icon">3</div>
+            </header>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehe
+          </ng-template>
+        </ngb-panel>
+
+        <ngb-panel [disabled]="true">
+          <ng-template ngbPanelTitle>
+            <header class="row menu-module-header">
+              <div class="text-center header-number">
+                <div class="circle">
+                  <span>3</span>
+
+                </div>
+              </div>
+              <div class="header-text">Header name</div>
+              <div class="header-icon">3</div>
+            </header>
+          </ng-template>
+          <ng-template ngbPanelContent>
+          </ng-template>
+        </ngb-panel>
+
+      </ngb-accordion>
+
+    </div>
+    <div class="col-md-9">
+      <div class="course-header">
+        header
+      </div>
+      <div class="course-content">
+        content
+      </div>
+    </div>
+  </div>
+</div>
