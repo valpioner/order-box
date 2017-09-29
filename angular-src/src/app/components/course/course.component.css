@@ -37,7 +37,31 @@
 }
 
 .menu-module-item{
-    padding: .3em 0 .3em 2em;
+    padding: .3em 0 .3em 3em;
+}
+
+.menu-module-item::before{    
+    width: 10px;
+    height: 10px;
+    content: "";
+    position: absolute;
+    left: 1.2em;
+    margin-top: .5em;
+    border-radius: 50%;
+    background: #C9CED0;
+}
+
+.menu-module-item:hover{
+    background: #F6F8F8;
+    cursor: pointer;
+}
+
+.menu-module-item a{
+    text-decoration: none;
+}
+
+.menu-module-content{
+    padding: 0;
 }
 
 .menu-module-content::after{
@@ -49,7 +73,7 @@
     position: absolute;
     right: 50%;
     top: 0;
-    width: 1px;
+    width: 2px;
 }
 
 .header-number{
