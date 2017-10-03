@@ -34,6 +34,10 @@
     font-weight: lighter;
 }
 
+.btn-font-weight-normal{
+    font-weight: normal;
+}
+
 @media screen and (min-width: 48em) {
     .timeline-section-col h2{
         padding-top: 0;

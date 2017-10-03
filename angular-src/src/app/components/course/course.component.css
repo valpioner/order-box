@@ -9,12 +9,18 @@
 }
 
 .course-header{
-    height: 10em;
-    background: black;
+    background: #343A40;
+    background-image: url(../../../assets/textures.png);
+    background-size: 20%;
+    background-repeat: repeat;
+    border-radius: 5px;
+
+    text-align: center;
+    padding: 3em 0;
 }
 
 .course-content{
-    background: #27277B;
+    /* background: #27277B; */
 }
 
 .menu-module-header{
