@@ -1,0 +1,98 @@
+.page-header{
+    background: #c0ecf4;
+    background-image: url("../../../assets/page-header.jpg");
+    background-size: 600px 267px;
+}
+
+.timeline{
+    position: relative;
+    padding: 5em 0;
+    font-weight: lighter;
+}
+
+.timeline-header{    
+    margin-bottom: 2em;
+}
+
+.timeline-section{
+    padding-top: 2.5em;
+    position: relative;
+}
+
+.reverse{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.timeline-section-col{
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+
+.timeline-section-col h2{
+    padding-top: 1em;
+    font-weight: lighter;
+}
+
+.btn-font-weight-normal{
+    font-weight: normal;
+}
+
+@media screen and (min-width: 48em) {
+    .timeline-section-col h2{
+        padding-top: 0;
+    }
+
+    .horizontal-line::before{
+        background: #C9CED0;
+        bottom: 0;
+        content: "";
+        left: 50%;
+        margin-left: -1px;
+        position: absolute;
+        right: 50%;
+        top: 0;
+        width: 1px;
+    }
+    .timeline-section::before{
+        background: #fff;
+        border: 4px solid #9DB0B5;
+        border-radius: 50%;
+        content: "";
+        height: 20px;
+        left: 50%;
+        margin: 1.25em 0 0 -10px;
+        position: absolute;
+        top: 30px;
+        width: 20px;
+        z-index: 1;
+    }
+    .timeline-section--first::after{
+        background: white;
+        bottom: 0;
+        content: "";
+        left: 50%;
+        margin-left: -1px;
+        position: absolute;
+        right: 50%;
+        top: 0;
+        width: 1px;
+        height: 50px;
+    }
+    .timeline-section--last::after{
+        background: white;
+        bottom: 0;
+        content: "";
+        left: 50%;
+        margin-left: -1px;
+        position: absolute;
+        right: 50%;
+        width: 1px;
+        height: 75%
+    }
+}
+
+.center{
+    display: block;
+    margin: 0 auto;
+}

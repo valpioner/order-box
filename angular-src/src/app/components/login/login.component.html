@@ -1,3 +1,14 @@
-<p>
-  login works!
-</p>
+<div class="login text-center">
+  <h1>Login</h1>
+  <br>
+  <form (submit)="onLoginSubmit()">
+    <input type="text" class="form-control login-input" placeholder="Username" [(ngModel)]="username" name="username" required="required">
+    <input type="password" class="form-control login-input" placeholder="Password" [(ngModel)]="password" name="password" required="required">
+    <button type="submit" class="btn btn-block" value="Login">Login</button>
+  </form>
+  <br>
+  <div class="links text-left">
+    Not registered? <a [routerLink]="['/register']">Create an account</a>
+    <p>Forgot password? <a [routerLink]="['/forgotPassword']">Click here</a></p>
+  </div>
+</div>

@@ -1,4 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    position: relative;
+    height: 100%;
+}
+
 body { 
     padding-top: 65px; 
+    background: #f6f8f8;
+    color: #393d40;
+    height: 100%;
+
+    font-family: 
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Oxygen",
+        "Ubuntu",
+        "CantareSans",
+        "DroidSans",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+}
+
+main{
+    padding-bottom:20em;
+    min-height: 100%;
+}
+
+::selection {
+    background: #c0ecf4;
+    color: #FFF;
+}
+
+.bg-easy-gray{
+    background: #f6f8f8;
+}
+
+.btn{
+    border-radius: 100px;
+    background: #00B8D0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn:active,.btn:focus,.btn:hover {
+    background-color: #1c91a8;
+    border-color: #1c91a8;
+    color: #fff;
+}
+
+a {
+    color: #00B8D0;
+}
+
+a:active, a:focus, a:hover {
+    color: #1c91a8;
+}
+
+.theme-color{
+    background: #00B8D0;
+}
+
+.btn-grey{
+    background-color: #575a5b;
+    border: 1px solid #575a5b;
+    color: #fff;
+}
+
+.btn-grey:hover, .btn-grey:focus .btn-grey:active{
+    background-color: #3e4041;
+    border: 1px solid #3e4041;
+    color: #fff;
+}
+
+.btn--l{
+    font-size: 130%;
+    padding: 0 2.5em;
+    line-height: 2.7;
+    /* color:darkslategrey; */
+    
+}
+
+h1, h2, h3, h4, .h{
+    color: #575a5b;
 }

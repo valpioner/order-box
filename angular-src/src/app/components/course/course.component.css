@@ -1,0 +1,107 @@
+.course{
+    height: 100%;
+    padding-top: 2em;
+}
+
+.course-menu{
+    height: 100%;
+    padding: 0;
+}
+
+.course-header{
+    background: #343A40;
+    background-image: url(../../../assets/textures.png);
+    background-size: 20%;
+    background-repeat: repeat;
+    border-radius: 5px;
+
+    text-align: center;
+    padding: 3em 0;
+}
+
+.course-content{
+    /* background: #27277B; */
+}
+
+.menu-module-header{
+    margin: .5em 0;
+    flex-wrap: nowrap;
+}
+
+/deep/ .card-header{
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+/deep/ .card-header a{
+    text-decoration: none;
+}
+
+/deep/ .card-body{
+    padding: 0;
+    margin: 0;
+}
+
+.menu-module-item{
+    padding: .3em 0 .3em 3em;
+}
+
+.menu-module-item::before{    
+    width: 10px;
+    height: 10px;
+    content: "";
+    position: absolute;
+    left: 1.2em;
+    margin-top: .5em;
+    border-radius: 50%;
+    background: #C9CED0;
+}
+
+.menu-module-item:hover{
+    background: #F6F8F8;
+    cursor: pointer;
+}
+
+.menu-module-item a{
+    text-decoration: none;
+}
+
+.menu-module-content{
+    padding: 0;
+}
+
+.menu-module-content::after{
+    background: #C9CED0;
+    bottom: 0;
+    content: "";
+    left: 1.5em;
+    margin-left: -1px;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    width: 2px;
+}
+
+.header-number{
+    line-height: 1.4em;
+    width: 3em;
+}
+
+.header-text{
+    flex: 1;
+    white-space: nowrap;
+}
+
+.header-icon{
+    padding: 0 1em;
+}
+
+.circle{
+    border-radius: 50%;
+    background-color: white;
+    border: .5px solid #1c91a8;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 70%;
+    margin: 0 auto;
+}
