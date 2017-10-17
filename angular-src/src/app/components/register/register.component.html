@@ -6,10 +6,16 @@
     <input type="text" class="form-control register-input" placeholder="Username" [(ngModel)]="username" name="username" required="required">
     <input type="text" class="form-control register-input" placeholder="Email" [(ngModel)]="email" name="email" required="required">
     <input type="password" class="form-control register-input" placeholder="Password" [(ngModel)]="password" name="password" required="required">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input #isAdmin id="isAdmin" class="form-check-input" type="checkbox" [checked]="isAdmin" (change)="onIsAdminChanged(isAdmin.checked)"> is Admin
+      </label>
+    </div>
     <button type="submit" class="btn btn-block" value="Register">Register</button>
   </form>
   <br>
   <div class="links text-left">
-    Already have an account? <a [routerLink]="['/login']">Login here</a>
+    Already have an account?
+    <a [routerLink]="['/login']">Login here</a>
   </div>
 </div>

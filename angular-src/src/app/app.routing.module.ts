@@ -19,6 +19,12 @@ const routes: Routes = [
         data: { title: 'Login' }
     },
     {
+      path: 'admin',
+      loadChildren: 'app/admin/admin.module#AdminModule',
+      canLoad: [AuthGuard],
+      data: { title: 'Admin' }
+    },
+    {
         path: 'dashboard',
         component: DashboardComponent, 
         canActivate: [AuthGuard],

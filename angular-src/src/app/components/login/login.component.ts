@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit() {
     const user = new User(
+      null, //id
       null, //name
       null, //email
       this.username,

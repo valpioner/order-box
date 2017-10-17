@@ -11,7 +11,8 @@ router.post('/register', (req, res, next) => {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        isAdmin: req.body.isAdmin
     });
 
     User.addUser(newUser, (err, user) => {
@@ -61,6 +62,29 @@ router.post('/authenticate', (req, res, next) => {
 // Profile
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     res.json({user: req.user});
+});
+
+// GetAll
+router.get('/getAllUsers', (req, res, next) => {
+    User.find((err, users) => {
+        if (err) {
+            res.json({success: false, msg: 'Failed to get all users'});
+        } else {
+            res.json({users});
+        }
+    });
+});
+
+// Delete by id
+router.post('/delete', (req, res, next) => {
+    let id = req.body.id;
+    User.delete(id, (err) => {
+        if (err) {
+            res.json({success: false, msg: 'Failed to delete user'});
+        } else {
+            res.json({success: true, msg: 'User deleted'});
+        }
+    });
 });
 
 module.exports = router;
