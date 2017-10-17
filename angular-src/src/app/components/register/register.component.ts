@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidateService } from '../../services/validate.service'
-import { AuthService } from '../../services/auth.service'
+import { ValidateService } from '../../services/validate.service';
+import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { User } from './../../models/user';
 
 
 @Component({
@@ -11,10 +12,10 @@ import { Router } from '@angular/router'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name: String;
-  username: String;
-  email: String;
-  password: String;
+  name: string;
+  username: string;
+  email: string;
+  password: string;
 
   constructor(
     private validateService: ValidateService, 
@@ -26,12 +27,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit(){
-    const user = {
-      name: this.name,
-      email: this.email,
-      username: this.username,
-      password: this.password
-    }
+    const user = new User(
+      this.name,
+      this.email,
+      this.username,
+      this.password
+    );
 
     // Required Fields
     if(!this.validateService.validateRegister(user)){

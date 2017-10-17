@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
+import { User } from './../models/user';
 
 @Injectable()
 export class AuthService {
   authToken: any;
-  user: any;
+  user: User;
 
   constructor(private http: Http) { }
 
