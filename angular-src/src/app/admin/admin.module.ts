@@ -5,6 +5,7 @@ import { ManageUsersModule } from './manage-users/manage-users.module';
 import { AdminComponent, AdminDashboardComponent, ManageCoursesComponent, /*ManageUsersComponent, */AdminService } from '.';
 
 import { AdminRoutingModule } from './admin.routing.module';
+import { AdminGuard } from '../guards'
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { AdminRoutingModule } from './admin.routing.module';
     ManageUsersModule
   ],
   providers: [
-    AdminService
+    AdminService,
+    AdminGuard
   ],
   declarations: [AdminComponent, AdminDashboardComponent, /*ManageUsersComponent, */ManageCoursesComponent]
 })

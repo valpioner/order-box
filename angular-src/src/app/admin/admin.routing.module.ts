@@ -4,17 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent, AdminDashboardComponent, ManageCoursesComponent/*, ManageUsersComponent*/ } from '.';
 import { UserListComponent, UserFormComponent } from './manage-users';
 
-import { AuthGuard } from './../guards/auth.guard';
+import { AuthGuard, AdminGuard } from './../guards';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
     children: [
       {
         path: '',
-        canActivateChild: [AuthGuard],
+        canActivateChild: [AuthGuard, AdminGuard],
         children: [
           { path: 'users', component: UserListComponent },
           { path: 'users/edit/:id', component: UserFormComponent },

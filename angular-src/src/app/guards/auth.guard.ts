@@ -33,6 +33,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad{
         }
     }
 
+    canActivateIfAdmin(){
+        
+    }
+
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         // console.log('canActivateChild Guard is called');
         // const url: string = state.url;
