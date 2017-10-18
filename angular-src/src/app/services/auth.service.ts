@@ -50,6 +50,10 @@ export class AuthService {
     return tokenNotExpired();
   }
 
+  isAdmin() {
+    return this.user.isAdmin;
+  }
+
   logout() {
     this.authToken = null;
     this.user = null;
