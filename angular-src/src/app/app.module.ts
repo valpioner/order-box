@@ -12,7 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { ValidateService } from './services';
 import { AuthService } from './services';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard, AdminGuard } from './guards';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -34,7 +34,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
   providers: [
     ValidateService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

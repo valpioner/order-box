@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   isAdmin() {
-    return this.user.isAdmin;
+    return JSON.parse(localStorage.getItem('user')).isAdmin;
   }
 
   logout() {

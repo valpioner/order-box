@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   username: string;
   email: string;
   password: string;
-  isAdmin: boolean;
+  isAdmin: boolean = false;
 
   constructor(
     private validateService: ValidateService,

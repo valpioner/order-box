@@ -3,7 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { CourseComponent, DashboardComponent, LoginComponent, RegisterComponent, HomeComponent, ProfileComponent } from './components';
 
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard, AdminGuard } from './guards';
 import { CustomPreloadingStrategyService } from './services';
 
 const routes: Routes = [
@@ -21,7 +21,8 @@ const routes: Routes = [
     {
       path: 'admin',
       loadChildren: 'app/admin/admin.module#AdminModule',
-      canLoad: [AuthGuard],
+      canLoad: [AuthGuard, AdminGuard],
+      canActivate: [AuthGuard, AdminGuard],
       data: { title: 'Admin' }
     },
     {
