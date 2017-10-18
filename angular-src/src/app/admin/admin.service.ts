@@ -5,32 +5,26 @@ import { tokenNotExpired } from 'angular2-jwt';
 import { User } from './../models/user';
 
 @Injectable()
-export class AuthService {
+export class AdminService {
   authToken: any;
   user: User;
 
   constructor(private http: Http) { }
 
-  registerUser(user) {
+  getAllUsers() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3001/users/register', user, {headers: headers})
-      .map(res => res.json());
+    return this.http.get('http://localhost:3001/users/getAllUsers', {headers: headers})
+      .map(res => res.json().users);
   }
 
-  authenticateUser(user) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3001/users/authenticate', user, {headers: headers})
-      .map(res => res.json());
+  changeUser(user) {
   }
 
-  getProfile(){
+  deleteUser(id){
     let headers = new Headers();
-    this.loadToken();
-    headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:3001/users/profile', {headers: headers})
+    return this.http.post('http://localhost:3001/users/delete', {id}, {headers: headers})
       .map(res => res.json());
   }
   
@@ -48,10 +42,6 @@ export class AuthService {
 
   loggedIn() {
     return tokenNotExpired();
-  }
-
-  isAdmin() {
-    return this.user.isAdmin;
   }
 
   logout() {

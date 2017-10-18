@@ -3,55 +3,33 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
+import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { ValidateService } from './services/validate.service';
-import { AuthService } from './services/auth.service';
+import { ValidateService } from './services';
+import { AuthService } from './services';
+import { AuthGuard } from './guards/auth.guard';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { AuthGuard } from './guards/auth.guard';
-import { UsersComponent } from './components/users/users.component';
-import { CourseComponent } from './components/course/course.component';
-
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'course', component: CourseComponent, canActivate: [AuthGuard] }
-];
 
 @NgModule({
   declarations: [
     AppComponent,
+    appRouterComponents,
     NavbarComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    DashboardComponent,
-    ProfileComponent,
     FooterComponent,
-    UsersComponent,
-    CourseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
     NgbModule.forRoot(),
-    FlashMessagesModule
+    FlashMessagesModule,
+    AppRoutingModule // should be last
   ],
   providers: [
     ValidateService,
@@ -60,4 +38,8 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}

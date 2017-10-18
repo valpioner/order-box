@@ -3,6 +3,8 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
+import { User } from './../../models/user';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,10 +23,13 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit() {
-    const user = {
-      username: this.username,
-      password: this.password
-    }
+    const user = new User(
+      null, //id
+      null, //name
+      null, //email
+      this.username,
+      this.password
+    )
 
     this.authService.authenticateUser(user).subscribe(data => {
       if (data.success){

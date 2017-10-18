@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidateService } from '../../services/validate.service'
-import { AuthService } from '../../services/auth.service'
+import { ValidateService } from '../../services/validate.service';
+import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { User } from './../../models/user';
 
 
 @Component({
@@ -11,13 +12,14 @@ import { Router } from '@angular/router'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name: String;
-  username: String;
-  email: String;
-  password: String;
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  isAdmin: boolean;
 
   constructor(
-    private validateService: ValidateService, 
+    private validateService: ValidateService,
     private flashMessage: FlashMessagesService,
     private authService: AuthService,
     private router: Router) { }
@@ -25,36 +27,42 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRegisterSubmit(){
-    const user = {
-      name: this.name,
-      email: this.email,
-      username: this.username,
-      password: this.password
-    }
+  onRegisterSubmit() {
+    const user = new User(
+      null,
+      this.name,
+      this.email,
+      this.username,
+      this.password,
+      this.isAdmin
+    );
 
     // Required Fields
-    if(!this.validateService.validateRegister(user)){
-      this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
+    if (!this.validateService.validateRegister(user)) {
+      this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
       return false;
     }
 
     // Validate Email
-    if(!this.validateService.validateEmail(user.email)){
-      this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
+    if (!this.validateService.validateEmail(user.email)) {
+      this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
       return false;
     }
 
     // Register uesr
     this.authService.registerUser(user).subscribe(data => {
       if (data.success) {
-        this.flashMessage.show('You are now registered and can log in', {cssClass: 'alert-success', timeout: 3000});
+        this.flashMessage.show('You are now registered and can log in', { cssClass: 'alert-success', timeout: 3000 });
         this.router.navigate(['/login']);
       } else {
-        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
-        this.router.navigate(['/login']);        
+        this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
+        this.router.navigate(['/login']);
       }
     });
+  }
+
+  public onIsAdminChanged(value: boolean) {
+    this.isAdmin = value;
   }
 
 }
