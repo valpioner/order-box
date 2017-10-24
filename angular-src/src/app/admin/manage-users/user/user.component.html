@@ -1,0 +1,18 @@
+<div class="card user-card">
+  <div class="card-header">User</div>
+  <div class="card-body">
+    <ul>
+      <li>id: {{user._id}}</li>
+      <li>name: {{user.name}}</li>
+      <li>username: {{user.username}}</li>
+      <li>email: {{user.email}}</li>
+      <li>isAdmin: {{user.isAdmin || false}}</li>
+    </ul>
+    <button class="btn btn-sm" (click)="editUser()">
+      Edit
+    </button>
+    <button class="btn btn-sm" (click)="deleteUser()">
+      Delete
+    </button>
+  </div>
+</div>

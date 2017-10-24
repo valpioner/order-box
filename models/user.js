@@ -30,20 +30,22 @@ module.exports.getAllUsers = function(callback){
     User.find({}, callback);
 }
 
-module.exports.updateUser = function(newUser){
-    User.findById(newUser.id, function(err, user) {
-        if (err) throw err;
+module.exports.updateUser = function(updatedUser, callback){
+    // User.findById(newUser.id, function(err, user) {
+    //     if (err) throw err;
       
-        // change the users location
-        user = newUser;
+    //     // change the users location
+    //     user = newUser;
       
-        // save the user
-        user.save(function(err) {
-          if (err) throw err;      
-          return true;
-        });
+    //     // save the user
+    //     user.save(function(err) {
+    //       if (err) throw err;      
+    //       return true;
+    //     });
       
-      });
+    //   });
+
+    User.findByIdAndUpdate(updatedUser._id, updatedUser, callback);
 }
 
 module.exports.delete = function(id, callback){
@@ -51,6 +53,7 @@ module.exports.delete = function(id, callback){
 }
 
 module.exports.getUserById = function(id, callback){
+    console.log(id)
     User.findById(id, callback);
 }
 

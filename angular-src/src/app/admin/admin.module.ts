@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ManageUsersModule } from './manage-users/manage-users.module';
 
-import { AdminComponent, AdminDashboardComponent, ManageCoursesComponent, /*ManageUsersComponent, */AdminService } from '.';
+import { AdminComponent, AdminDashboardComponent, ManageCoursesComponent, AdminService } from '.';
 
 import { AdminRoutingModule } from './admin.routing.module';
 import { AdminGuard } from '../guards'
@@ -17,6 +17,6 @@ import { AdminGuard } from '../guards'
     AdminService,
     AdminGuard
   ],
-  declarations: [AdminComponent, AdminDashboardComponent, /*ManageUsersComponent, */ManageCoursesComponent]
+  declarations: [AdminComponent, AdminDashboardComponent, ManageCoursesComponent]
 })
 export class AdminModule { }
