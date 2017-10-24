@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
+
+import { TimingInterceptor } from './services/interceptors.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+
+import { DialogService } from './services/dialog.service';
 
 import { ValidateService } from './services';
 import { AuthService } from './services';
@@ -37,7 +41,14 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     ValidateService,
     AuthService,
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    DialogService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TimingInterceptor,
+      multi: true,
+    }
+
   ],
   bootstrap: [AppComponent]
 })

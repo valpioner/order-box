@@ -18,7 +18,7 @@ const routes: Routes = [
         children: [
           { path: 'users', component: UserListComponent },
           { path: 'users/add', component: UserFormComponent },
-          { path: 'users/edit/:id', component: UserFormComponent, resolve: { user: UserResolveGuard } },
+          { path: 'users/edit/:id', component: UserFormComponent, canDeactivate: [CanDeactivateGuard], resolve: { user: UserResolveGuard } },
           { path: 'courses', component: ManageCoursesComponent },
           { path: '', component: AdminDashboardComponent }
         ]

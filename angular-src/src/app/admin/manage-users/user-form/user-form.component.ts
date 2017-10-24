@@ -3,9 +3,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 
 import { User } from './../../../models/user';
 import { UserService } from './../services/user.service';
+import { DialogService } from './../../../services/dialog.service';
 
 @Component({
   selector: 'app-user-form',
@@ -21,7 +23,8 @@ export class UserFormComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +61,20 @@ export class UserFormComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/admin/users']);
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    // Allow synchronous navigation (`true`)
+    if (!this.originalUser || 
+      (this.originalUser.name === this.user.name &&
+      this.originalUser.username === this.user.username &&
+      this.originalUser.email === this.user.email &&
+      this.originalUser.isAdmin === this.user.isAdmin)) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    return this.dialogService.confirm('Discard changes?');
   }
 
 }
