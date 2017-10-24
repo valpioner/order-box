@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './manage-users.routing.module';
 
-import { UserListComponent, UserFormComponent, UserArrayService } from '.';
+import { UserListComponent, UserFormComponent, UserService, UserComponent } from '.';
 
 @NgModule({
   imports: [
@@ -14,10 +14,11 @@ import { UserListComponent, UserFormComponent, UserArrayService } from '.';
   ],
   declarations: [
     UserListComponent, 
-    UserFormComponent
+    UserFormComponent,
+    UserComponent
   ],
   providers: [
-    UserArrayService
+    UserService
   ]
 })
 export class ManageUsersModule { }

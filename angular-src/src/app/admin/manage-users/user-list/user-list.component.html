@@ -1,7 +1,6 @@
 <div class="user-list">
 
-  <div *ngFor="let user of users">
-
+  <!-- <div *ngFor="let user of users">
     <div class="card user-card">
       <div class="card-header">User</div>
       <div class="card-body">
@@ -20,8 +19,17 @@
         </button>
       </div>
     </div>
+  </div> -->
 
+  <button class="btn btn-primary" (click)="createUser()">New User</button>
 
-  </div>
+  <br/>
+
+  <user 
+    *ngFor='let user of users' 
+    [user]="user" 
+    [class.edited]="isEdited(user)" 
+    (onDelete)="deleteUser($event)">
+  </user>
 
 </div>

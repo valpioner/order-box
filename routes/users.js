@@ -76,6 +76,36 @@ router.get('/getAllUsers', (req, res, next) => {
     });
 });
 
+// Get by id
+router.get('/:id', (req, res, next) => {
+    console.log(req.params);
+    User.getUserById(req.params.id, (err, user) => {
+        if (err) {
+            console.log(err);
+            res.json({success: false, msg: 'Failed to get all users'});
+        } else {
+            console.log('susscess');
+            res.json({user});
+        }
+    });
+});
+
+// Update
+router.put('/update', (req, res, next) => {
+    console.log('updating');
+    console.log(req.params);
+    console.log(req.body);
+    User.updateUser(req.body, (err, user) => {
+        if (err) {
+            console.log(err);
+            res.json({success: false, msg: 'Failed to get all users'});
+        } else {
+            console.log('susscess');
+            res.json({user});
+        }
+    });
+});
+
 // Delete by id
 router.post('/delete', (req, res, next) => {
     let id = req.body.id;

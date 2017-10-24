@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 
@@ -27,6 +28,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     FlashMessagesModule,
     AppRoutingModule // should be last

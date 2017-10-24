@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminComponent, AdminDashboardComponent, ManageCoursesComponent/*, ManageUsersComponent*/ } from '.';
+import { AdminComponent, AdminDashboardComponent, ManageCoursesComponent } from '.';
 import { UserListComponent, UserFormComponent } from './manage-users';
 
-import { AuthGuard, AdminGuard } from './../guards';
+import { AuthGuard, AdminGuard, UserResolveGuard, CanDeactivateGuard } from './../guards';
 
 const routes: Routes = [
   {
@@ -17,7 +17,8 @@ const routes: Routes = [
         canActivateChild: [AuthGuard, AdminGuard],
         children: [
           { path: 'users', component: UserListComponent },
-          { path: 'users/edit/:id', component: UserFormComponent },
+          { path: 'users/add', component: UserFormComponent },
+          { path: 'users/edit/:id', component: UserFormComponent, resolve: { user: UserResolveGuard } },
           { path: 'courses', component: ManageCoursesComponent },
           { path: '', component: AdminDashboardComponent }
         ]
@@ -26,11 +27,15 @@ const routes: Routes = [
   }
 ];
 
-export let adminRouterComponents = [AdminComponent, AdminDashboardComponent, ManageCoursesComponent,/*, ManageUsersComponent, */UserListComponent];
+export let adminRouterComponents = [AdminComponent, AdminDashboardComponent, ManageCoursesComponent, UserListComponent];
 
 @NgModule({
   imports: [
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    CanDeactivateGuard,
+    UserResolveGuard
   ],
   exports: [RouterModule]
 })
