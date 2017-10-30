@@ -1,18 +1,108 @@
 <div class="register text-center">
   <h1>Register</h1>
   <br>
-  <form (submit)="onRegisterSubmit()">
+
+  <form (ngSubmit)="onRegisterSubmit()" novalidate [formGroup]="userForm">
+    <fieldset>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="*Name" formControlName="name" [ngClass]="{'is-invalid': (userForm.get('name').touched || userForm.get('name').dirty) && !userForm.get('name').valid }"
+        />
+        <small class="text-danger" *ngIf="(userForm.get('name').touched || userForm.get('name').dirty) && userForm.get('name').errors">
+          <span *ngIf="userForm.get('name').errors.required">
+            Please enter your first name.
+          </span>
+          <span *ngIf="userForm.get('name').errors.minlength">
+            The first name must be longer than 3 characters.
+          </span>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="*Username" formControlName="username" [ngClass]="{'is-invalid': (userForm.get('username').touched || userForm.get('username').dirty) && !userForm.get('username').valid }"
+        />
+        <small class="text-danger" *ngIf="(userForm.get('username').touched || userForm.get('username').dirty) && userForm.get('username').errors">
+          <span *ngIf="userForm.get('username').errors.required">
+            Please enter your username.
+          </span>
+          <span *ngIf="userForm.get('username').errors.minlength">
+            Username must be longer than 3 characters.
+          </span>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="*Email" formControlName="email" [ngClass]="{'is-invalid': emailMessage}"
+        />
+        <small class="text-danger" *ngIf="emailMessage">
+          {{emailMessage}}
+        </small>
+      </div>
+
+      <div formGroupName="passwordGroup" [ngClass]="{'is-invalid': userForm.get('passwordGroup').errors}">
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="*Password" formControlName="password" [ngClass]="{'is-invalid': passwordMessage}"
+          />
+          <small class="text-danger" *ngIf="passwordMessage">
+            {{passwordMessage}}
+          </small>
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="*Confirm Password" formControlName="confirmPassword" [ngClass]="{'is-invalid': confirmPasswordMessage }"
+          />
+          <small class="text-danger" *ngIf="confirmPasswordMessage || userForm.get('passwordGroup').errors ">
+            <span *ngIf="confirmPasswordMessage">
+              {{confirmPasswordMessage}}
+            </span>
+            <span *ngIf="userForm.get('passwordGroup').errors?.passwordMatch">
+              The confirmation does not match the password.
+            </span>
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" formControlName="isAdmin"> is Admin
+          </label>
+        </div>
+      </div>
+
+      <div *ngIf="userForm.get('isAdmin').value">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="*Enter admin code" formControlName="adminConfirmationCode" [ngClass]="{'is-invalid': (userForm.get('adminConfirmationCode').touched || userForm.get('adminConfirmationCode').dirty) && !userForm.get('adminConfirmationCode').valid }">
+
+          <small class="text-danger" *ngIf="(userForm.get('adminConfirmationCode').touched || userForm.get('adminConfirmationCode').dirty) && userForm.get('adminConfirmationCode').errors">
+            <span *ngIf="userForm.get('adminConfirmationCode').errors.required">
+              Please enter admin confirmation code.
+            </span>
+            <span *ngIf="userForm.get('adminConfirmationCode').errors.adminCodeMatch">
+              Wrong admin confirmation code.
+            </span>
+          </small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-block" [disabled]="!userForm.valid">Register</button>
+    </fieldset>
+  </form>
+
+  <!-- OLD FORM -->
+  <!-- <form (submit)="onRegisterSubmit()">
     <input type="text" class="form-control register-input" placeholder="Name" [(ngModel)]="name" name="name" required="required">
     <input type="text" class="form-control register-input" placeholder="Username" [(ngModel)]="username" name="username" required="required">
     <input type="text" class="form-control register-input" placeholder="Email" [(ngModel)]="email" name="email" required="required">
-    <input type="password" class="form-control register-input" placeholder="Password" [(ngModel)]="password" name="password" required="required">
+    <input type="password" class="form-control register-input" placeholder="Password" [(ngModel)]="password" name="password"
+      required="required">
     <div class="form-check">
       <label class="form-check-label">
         <input class="form-check-input" type="checkbox" [checked]="isAdmin" (change)="isAdmin = !isAdmin"> is Admin
       </label>
     </div>
     <button type="submit" class="btn btn-block" value="Register">Register</button>
-  </form>
+  </form> -->
+
   <br>
   <div class="links text-left">
     Already have an account?
