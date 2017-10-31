@@ -10,12 +10,10 @@
     margin: 4em auto;  
 }
 
-.login-input{
-    width: 100%;
-    margin-bottom: 1em;
-    padding: 10px;
-}
-
 .links{
     font-size: 90%;
+}
+
+button[type="submit"]:disabled {
+    background: #8D8E8F;
 }

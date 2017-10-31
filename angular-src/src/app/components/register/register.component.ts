@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormArray, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/debounceTime';
+
+import { AutoUnsubscribe } from './../../decorators';
+import { CustomValidators } from './../../validators';
+
 import { ValidateService } from '../../services/validate.service';
 import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -11,43 +19,66 @@ import { User } from './../../models/user';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+@AutoUnsubscribe('subscriptions')
 export class RegisterComponent implements OnInit {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  isAdmin: boolean = false;
+  userForm: FormGroup;
+  emailMessage: string;
+  passwordMessage: string;
+  confirmPasswordMessage: string;
+
+  private subscriptions: Subscription[] = [];
+  private emailValidationMessages = {
+    required: 'Please enter your email.',
+    pattern: 'Please enter valid email'
+  };
+  private passwordValidationMessages = {
+    required: 'Please enter your password.',
+    minlength: 'Minimum 3 characters.'
+  };
 
   constructor(
     private validateService: ValidateService,
     private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.buildForm();
+    this.watchValueChanges();
   }
 
   onRegisterSubmit() {
+    // // Form model 
+    // console.log(this.userForm);
+    // // Form value
+    // console.log(`${JSON.stringify(this.userForm.value)}`);
+
+    if (!this.userForm.valid || this.userForm.errors) return;
+
+    let formData = this.userForm.value;
+
+
     const user = new User(
       null,
-      this.name,
-      this.email,
-      this.username,
-      this.password,
-      this.isAdmin
+      formData.name,
+      formData.email,
+      formData.username,
+      formData.passwordGroup.password,
+      formData.isAdmin
     );
 
-    // Required Fields
-    if (!this.validateService.validateRegister(user)) {
-      this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
-      return false;
-    }
+    // // Required Fields
+    // if (!this.validateService.validateRegister(user)) {
+    //   this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
+    //   return false;
+    // }
 
-    // Validate Email
-    if (!this.validateService.validateEmail(user.email)) {
-      this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
-      return false;
-    }
+    // // Validate Email
+    // if (!this.validateService.validateEmail(user.email)) {
+    //   this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+    //   return false;
+    // }
 
     // Register uesr
     this.authService.registerUser(user).subscribe(data => {
@@ -61,8 +92,66 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  public onIsAdminChanged(value: boolean) {
-    this.isAdmin = value;
+  private buildForm() {
+    this.userForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
+      passwordGroup: this.fb.group({
+        password: ['', [Validators.required, Validators.minLength(3)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(3)]],
+      }, { validator: CustomValidators.passwordMatcher }),
+      isAdmin: false, // validators are set on isAdmin checkbox change
+      adminConfirmationCode: [''],
+    });
+  }
+
+  private watchValueChanges() {
+    const emailControl = this.userForm.get('email');
+    const emailSubscription = emailControl.valueChanges
+      .debounceTime(1000)
+      .subscribe(value => this.emailMessage = this.defineErrorMessage(emailControl, this.emailValidationMessages));
+
+    const passwordControl = this.userForm.get('passwordGroup.password');
+    const passwordSubscription = passwordControl.valueChanges
+      .debounceTime(1000)
+      .subscribe(value => this.passwordMessage = this.defineErrorMessage(passwordControl, this.passwordValidationMessages));
+
+    const confirmPasswordControl = this.userForm.get('passwordGroup.confirmPassword');
+    const confirmPasswordSubscription = confirmPasswordControl.valueChanges
+      .debounceTime(1000)
+      .subscribe(value => this.confirmPasswordMessage = this.defineErrorMessage(confirmPasswordControl, this.passwordValidationMessages));
+
+    const isAdminControl = this.userForm.get('isAdmin');
+    const isAdminSubscription = isAdminControl.valueChanges
+      .subscribe(value => this.setAdminConfirmationCode(value));
+
+    this.subscriptions.push(passwordSubscription);
+    this.subscriptions.push(confirmPasswordSubscription);
+    this.subscriptions.push(isAdminSubscription);
+  }
+
+  private defineErrorMessage(c: AbstractControl, validationMessages: Object) {
+    if ((c.touched || c.dirty) && c.errors) {
+      return Object
+        .keys(c.errors)
+        .map(key => validationMessages[key])
+        .join(' ');
+    }
+  }
+
+  private setAdminConfirmationCode(isAdminChecked: boolean) {
+    const adminConfirmationCodeControl = this.userForm.get('adminConfirmationCode');
+    adminConfirmationCodeControl.setValue('');
+
+    if (isAdminChecked){
+      adminConfirmationCodeControl.reset();
+      adminConfirmationCodeControl.setValidators([Validators.required, CustomValidators.adminConfirmationCodeMarcher]);
+    } else {
+      adminConfirmationCodeControl.clearValidators();
+    }
+
+    adminConfirmationCodeControl.updateValueAndValidity();
   }
 
 }
