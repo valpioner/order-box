@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit {
   users: Array<User>;
 
   errorMessage: string;
-  private subscription: Subscription[] = [];
+  private subscriptions: Subscription[] = [];
   private editedUser: User;
 
   constructor(
@@ -35,7 +35,7 @@ export class UserListComponent implements OnInit {
         data => this.users = data.users,
         error => this.errorMessage = <any>error
       );
-    this.subscription.push(sub);
+    this.subscriptions.push(sub);
 
 
     // listen id from UserFormComponent
@@ -76,8 +76,7 @@ export class UserListComponent implements OnInit {
           // if (index > -1) {
           //   this.users.splice(index, 1);
           // }
-        }
-        else {
+        } else {
           this.FlashMessage.show('User was not deleted', { cssClass: 'alert-error', timeout: 3000 });
         }
       },

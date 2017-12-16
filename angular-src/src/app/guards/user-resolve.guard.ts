@@ -23,8 +23,7 @@ export class UserResolveGuard implements Resolve<User> {
           this.router.navigate(['/admin/users']);
           return Observable.of(null);
         });
-    }
-    else {
+    } else {
       return Observable.of(new User(null, null, null, null, null));
     }
 

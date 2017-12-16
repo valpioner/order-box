@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 import {
     CanActivate, CanActivateChild, CanLoad, Router, Route,
     ActivatedRouteSnapshot,
     RouterStateSnapshot, NavigationExtras
   } from '@angular/router';
-import { AuthService } from '../services/auth.service'
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad{
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     constructor(
         private authService: AuthService,
-        private router: Router ){ }
+        private router: Router ) { }
 
     canLoad(route: Route): boolean {
         // const url = `/${route.path}`;
         // return this.checkLogin(url);
 
-        if (this.authService.loggedIn()){
+        if (this.authService.loggedIn()) {
             return true;
         } else {
             this.router.navigate(['/login']);
@@ -24,17 +24,13 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad{
         }
     }
 
-    canActivate(){
-        if (this.authService.loggedIn()){
+    canActivate() {
+        if (this.authService.loggedIn()) {
             return true;
         } else {
             this.router.navigate(['/login']);
             return false;
         }
-    }
-
-    canActivateIfAdmin(){
-        
     }
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -42,7 +38,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad{
         // const url: string = state.url;
         // return this.checkLogin(url);
 
-        if (this.authService.loggedIn()){
+        if (this.authService.loggedIn()) {
             return true;
         } else {
             this.router.navigate(['/login']);

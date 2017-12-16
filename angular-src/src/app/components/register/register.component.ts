@@ -49,15 +49,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    // // Form model 
-    // console.log(this.userForm);
-    // // Form value
-    // console.log(`${JSON.stringify(this.userForm.value)}`);
-
     if (!this.userForm.valid || this.userForm.errors) return;
 
-    let formData = this.userForm.value;
-
+    const formData = this.userForm.value;
 
     const user = new User(
       null,
@@ -67,18 +61,6 @@ export class RegisterComponent implements OnInit {
       formData.passwordGroup.password,
       formData.isAdmin
     );
-
-    // // Required Fields
-    // if (!this.validateService.validateRegister(user)) {
-    //   this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
-    //   return false;
-    // }
-
-    // // Validate Email
-    // if (!this.validateService.validateEmail(user.email)) {
-    //   this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
-    //   return false;
-    // }
 
     // Register uesr
     this.authService.registerUser(user).subscribe(data => {
@@ -144,7 +126,7 @@ export class RegisterComponent implements OnInit {
     const adminConfirmationCodeControl = this.userForm.get('adminConfirmationCode');
     adminConfirmationCodeControl.setValue('');
 
-    if (isAdminChecked){
+    if (isAdminChecked) {
       adminConfirmationCodeControl.reset();
       adminConfirmationCodeControl.setValidators([Validators.required, CustomValidators.adminConfirmationCodeMarcher]);
     } else {
