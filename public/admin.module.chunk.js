@@ -19,7 +19,7 @@ module.exports = "<p>\r\n  admin-dashboard works!\r\n</p>\r\n"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminDashboardComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -35,18 +35,18 @@ var AdminDashboardComponent = (function () {
     }
     AdminDashboardComponent.prototype.ngOnInit = function () {
     };
+    AdminDashboardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-admin-dashboard',
+            template: __webpack_require__("./src/app/admin/admin-dashboard/admin-dashboard.component.html"),
+            styles: [__webpack_require__("./src/app/admin/admin-dashboard/admin-dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AdminDashboardComponent);
     return AdminDashboardComponent;
 }());
-AdminDashboardComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-admin-dashboard',
-        template: __webpack_require__("./src/app/admin/admin-dashboard/admin-dashboard.component.html"),
-        styles: [__webpack_require__("./src/app/admin/admin-dashboard/admin-dashboard.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], AdminDashboardComponent);
 
-//# sourceMappingURL=admin-dashboard.component.js.map
+
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<div class=\"admin\">\r\n  <div class=\"container\">\r\n\r\n  
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -85,17 +85,17 @@ var AdminComponent = (function () {
     }
     AdminComponent.prototype.ngOnInit = function () {
     };
+    AdminComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("./src/app/admin/admin.component.html"),
+            styles: [__webpack_require__("./src/app/admin/admin.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AdminComponent);
     return AdminComponent;
 }());
-AdminComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        template: __webpack_require__("./src/app/admin/admin.component.html"),
-        styles: [__webpack_require__("./src/app/admin/admin.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], AdminComponent);
 
-//# sourceMappingURL=admin.component.js.map
+
 
 /***/ }),
 
@@ -105,8 +105,8 @@ AdminComponent = __decorate([
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminModule", function() { return AdminModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__manage_users_manage_users_module__ = __webpack_require__("./src/app/admin/manage-users/manage-users.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3____ = __webpack_require__("./src/app/admin/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_routing_module__ = __webpack_require__("./src/app/admin/admin.routing.module.ts");
@@ -126,24 +126,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var AdminModule = (function () {
     function AdminModule() {
     }
+    AdminModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_4__admin_routing_module__["a" /* AdminRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_2__manage_users_manage_users_module__["a" /* ManageUsersModule */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3____["c" /* AdminService */],
+                __WEBPACK_IMPORTED_MODULE_5__guards__["a" /* AdminGuard */]
+            ],
+            declarations: [__WEBPACK_IMPORTED_MODULE_3____["a" /* AdminComponent */], __WEBPACK_IMPORTED_MODULE_3____["b" /* AdminDashboardComponent */], __WEBPACK_IMPORTED_MODULE_3____["d" /* ManageCoursesComponent */]]
+        })
+    ], AdminModule);
     return AdminModule;
 }());
-AdminModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_4__admin_routing_module__["a" /* AdminRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__manage_users_manage_users_module__["a" /* ManageUsersModule */]
-        ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_3____["c" /* AdminService */],
-            __WEBPACK_IMPORTED_MODULE_5__guards__["a" /* AdminGuard */]
-        ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3____["a" /* AdminComponent */], __WEBPACK_IMPORTED_MODULE_3____["b" /* AdminDashboardComponent */], __WEBPACK_IMPORTED_MODULE_3____["d" /* ManageCoursesComponent */]]
-    })
-], AdminModule);
 
-//# sourceMappingURL=admin.module.js.map
+
 
 /***/ }),
 
@@ -153,8 +153,8 @@ AdminModule = __decorate([
 "use strict";
 /* unused harmony export adminRouterComponents */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRoutingModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__("./src/app/admin/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__manage_users__ = __webpack_require__("./src/app/admin/manage-users/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__guards__ = __webpack_require__("./src/app/guards/index.ts");
@@ -193,22 +193,22 @@ var adminRouterComponents = [__WEBPACK_IMPORTED_MODULE_2____["a" /* AdminCompone
 var AdminRoutingModule = (function () {
     function AdminRoutingModule() {
     }
+    AdminRoutingModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4__guards__["c" /* CanDeactivateGuard */],
+                __WEBPACK_IMPORTED_MODULE_4__guards__["d" /* UserResolveGuard */]
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
+        })
+    ], AdminRoutingModule);
     return AdminRoutingModule;
 }());
-AdminRoutingModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)
-        ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_4__guards__["c" /* CanDeactivateGuard */],
-            __WEBPACK_IMPORTED_MODULE_4__guards__["d" /* UserResolveGuard */]
-        ],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
-    })
-], AdminRoutingModule);
 
-//# sourceMappingURL=admin.routing.module.js.map
+
 
 /***/ }),
 
@@ -217,12 +217,11 @@ AdminRoutingModule = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt__ = __webpack_require__("./node_modules/angular2-jwt/angular2-jwt.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/_esm5/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_rxjs_extensions__ = __webpack_require__("./src/app/services/rxjs-extensions.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -297,15 +296,14 @@ var AdminService = (function () {
         console.error(errorMessage);
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(errorMessage);
     };
+    AdminService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
+    ], AdminService);
     return AdminService;
 }());
-AdminService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
-], AdminService);
 
-var _a;
-//# sourceMappingURL=admin.service.js.map
+
 
 /***/ }),
 
@@ -325,7 +323,7 @@ var _a;
 
 
 
-//# sourceMappingURL=index.js.map
+
 
 /***/ }),
 
@@ -348,7 +346,7 @@ module.exports = "<p>\r\n  manage-courses works!\r\n</p>\r\n"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManageCoursesComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -364,18 +362,18 @@ var ManageCoursesComponent = (function () {
     }
     ManageCoursesComponent.prototype.ngOnInit = function () {
     };
+    ManageCoursesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-manage-courses',
+            template: __webpack_require__("./src/app/admin/manage-courses/manage-courses.component.html"),
+            styles: [__webpack_require__("./src/app/admin/manage-courses/manage-courses.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ManageCoursesComponent);
     return ManageCoursesComponent;
 }());
-ManageCoursesComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-manage-courses',
-        template: __webpack_require__("./src/app/admin/manage-courses/manage-courses.component.html"),
-        styles: [__webpack_require__("./src/app/admin/manage-courses/manage-courses.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], ManageCoursesComponent);
 
-//# sourceMappingURL=manage-courses.component.js.map
+
 
 /***/ }),
 
@@ -395,7 +393,7 @@ ManageCoursesComponent = __decorate([
 
 
 
-//# sourceMappingURL=index.js.map
+
 
 /***/ }),
 
@@ -404,9 +402,9 @@ ManageCoursesComponent = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManageUsersModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__manage_users_routing_module__ = __webpack_require__("./src/app/admin/manage-users/manage-users.routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4____ = __webpack_require__("./src/app/admin/manage-users/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -423,27 +421,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var ManageUsersModule = (function () {
     function ManageUsersModule() {
     }
+    ManageUsersModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__manage_users_routing_module__["a" /* UsersRoutingModule */]
+            ],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_4____["c" /* UserListComponent */],
+                __WEBPACK_IMPORTED_MODULE_4____["b" /* UserFormComponent */],
+                __WEBPACK_IMPORTED_MODULE_4____["a" /* UserComponent */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4____["d" /* UserService */]
+            ]
+        })
+    ], ManageUsersModule);
     return ManageUsersModule;
 }());
-ManageUsersModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__manage_users_routing_module__["a" /* UsersRoutingModule */]
-        ],
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_4____["c" /* UserListComponent */],
-            __WEBPACK_IMPORTED_MODULE_4____["b" /* UserFormComponent */],
-            __WEBPACK_IMPORTED_MODULE_4____["a" /* UserComponent */]
-        ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_4____["d" /* UserService */]
-        ]
-    })
-], ManageUsersModule);
 
-//# sourceMappingURL=manage-users.module.js.map
+
 
 /***/ }),
 
@@ -452,8 +450,8 @@ ManageUsersModule = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersRoutingModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -466,18 +464,18 @@ var routes = [];
 var UsersRoutingModule = (function () {
     function UsersRoutingModule() {
     }
+    UsersRoutingModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
+        })
+    ], UsersRoutingModule);
     return UsersRoutingModule;
 }());
-UsersRoutingModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)
-        ],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
-    })
-], UsersRoutingModule);
 
-//# sourceMappingURL=manage-users.routing.module.js.map
+
 
 /***/ }),
 
@@ -500,10 +498,9 @@ module.exports = "<div class=\"user-form\">\r\n\r\n  <div class=\"card\">\r\n\r\
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserFormComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__ = __webpack_require__("./node_modules/rxjs/add/operator/switchMap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/switchMap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_user__ = __webpack_require__("./src/app/models/user.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service__ = __webpack_require__("./src/app/admin/manage-users/services/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_dialog_service__ = __webpack_require__("./src/app/services/dialog.service.ts");
@@ -571,19 +568,21 @@ var UserFormComponent = (function () {
         // promise which resolves to true or false when the user decides
         return this.dialogService.confirm('Discard changes?');
     };
+    UserFormComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-user-form',
+            template: __webpack_require__("./src/app/admin/manage-users/user-form/user-form.component.html"),
+            styles: [__webpack_require__("./src/app/admin/manage-users/user-form/user-form.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_5__services_dialog_service__["a" /* DialogService */]])
+    ], UserFormComponent);
     return UserFormComponent;
 }());
-UserFormComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-user-form',
-        template: __webpack_require__("./src/app/admin/manage-users/user-form/user-form.component.html"),
-        styles: [__webpack_require__("./src/app/admin/manage-users/user-form/user-form.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__services_dialog_service__["a" /* DialogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_dialog_service__["a" /* DialogService */]) === "function" && _d || Object])
-], UserFormComponent);
 
-var _a, _b, _c, _d;
-//# sourceMappingURL=user-form.component.js.map
+
 
 /***/ }),
 
@@ -606,8 +605,8 @@ module.exports = "<div class=\"user-list\">\r\n\r\n  <!-- <div *ngFor=\"let user
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserListComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__decorators__ = __webpack_require__("./src/app/decorators/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_service__ = __webpack_require__("./src/app/admin/admin.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__ = __webpack_require__("./node_modules/angular2-flash-messages/index.js");
@@ -687,20 +686,22 @@ var UserListComponent = (function () {
         var link = ['admin/users/add'];
         this.router.navigate(link);
     };
+    UserListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-user-list',
+            template: __webpack_require__("./src/app/admin/manage-users/user-list/user-list.component.html"),
+            styles: [__webpack_require__("./src/app/admin/manage-users/user-list/user-list.component.css")]
+        }),
+        Object(__WEBPACK_IMPORTED_MODULE_2__decorators__["a" /* AutoUnsubscribe */])('subscriptions'),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__["FlashMessagesService"],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], UserListComponent);
     return UserListComponent;
 }());
-UserListComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-user-list',
-        template: __webpack_require__("./src/app/admin/manage-users/user-list/user-list.component.html"),
-        styles: [__webpack_require__("./src/app/admin/manage-users/user-list/user-list.component.css")]
-    }),
-    Object(__WEBPACK_IMPORTED_MODULE_2__decorators__["a" /* AutoUnsubscribe */])('subscriptions'),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__admin_service__["a" /* AdminService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__["FlashMessagesService"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
-], UserListComponent);
 
-var _a, _b, _c, _d;
-//# sourceMappingURL=user-list.component.js.map
+
 
 /***/ }),
 
@@ -723,8 +724,8 @@ module.exports = "<div class=\"card user-card\">\r\n  <div class=\"card-header\"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user__ = __webpack_require__("./src/app/models/user.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -754,27 +755,27 @@ var UserComponent = (function () {
     UserComponent.prototype.deleteUser = function () {
         this.onDelete.emit(this.user);
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__models_user__["a" /* User */])
+    ], UserComponent.prototype, "user", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "onDelete", void 0);
+    UserComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'user',
+            template: __webpack_require__("./src/app/admin/manage-users/user/user.component.html"),
+            styles: [__webpack_require__("./src/app/admin/manage-users/user/user.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], UserComponent);
     return UserComponent;
 }());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_user__["a" /* User */]) === "function" && _a || Object)
-], UserComponent.prototype, "user", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-    __metadata("design:type", Object)
-], UserComponent.prototype, "onDelete", void 0);
-UserComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'user',
-        template: __webpack_require__("./src/app/admin/manage-users/user/user.component.html"),
-        styles: [__webpack_require__("./src/app/admin/manage-users/user/user.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
-], UserComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=user.component.js.map
+
 
 /***/ })
 
